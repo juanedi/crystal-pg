@@ -54,21 +54,21 @@ class PG::ResultSet < ::DB::ResultSet
     decoder(index).type
   end
 
-  def read(t : Float32.class)
-    read(Float64).to_f32
-  end
+  # def read(t : Float32.class)
+  #   read(Float64).to_f32
+  # end
 
-  def read(t : Float32?.class)
-    read(Float64?).try &.to_f32
-  end
+  # def read(t : Float32?.class)
+  #   read(Float64?).try &.to_f32
+  # end
 
-  def read(t : Float64.class)
-    read(PG::Numeric).to_f64
-  end
+  # def read(t : Float64.class)
+  #   read(PG::Numeric).to_f64
+  # end
 
-  def read(t : Float64?.class)
-    read(PG::Numeric?).try &.to_f64
-  end
+  # def read(t : Float64?.class)
+  #   read(PG::Numeric?).try &.to_f64
+  # end
 
   def read
     col_bytesize = conn.read_i32
